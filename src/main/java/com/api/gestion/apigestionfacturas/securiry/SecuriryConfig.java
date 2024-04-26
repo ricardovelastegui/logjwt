@@ -43,7 +43,7 @@ public class SecuriryConfig {
     protected SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         // this.jwtFilter()=jwtFilter();
 
-        httpSecurity.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()).and().csrf().disable().authorizeRequests().requestMatchers("/user/login", "/user/signup", "/user/forgotPassword").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement().sessionCreationPolicy( SessionCreationPolicy.STATELESS );
+        httpSecurity.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues()).and().csrf().disable().authorizeRequests().requestMatchers("/user/login", "/user/signUp", "/user/forgotPassword").permitAll().anyRequest().authenticated().and().exceptionHandling().and().sessionManagement().sessionCreationPolicy( SessionCreationPolicy.STATELESS );
         httpSecurity.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
 
